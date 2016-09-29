@@ -36,7 +36,7 @@ class ExamController extends BaseController {
         $datetime1 = new DateTime(Input::get('dateStart'));
         $datetime2 = new DateTime(date("Y-m-d H:i:s"));
         $interval = $datetime1->diff($datetime2);
-        $duration = $interval->format('%m minutes, %s seconds');
+        $duration = $interval->format('%i minutes, %s seconds');
        
         Mail::send('emails.answers', array('answers' => Input::all(), 'dateEnd' => date("Y-m-d H:i:s"), 'duration' => $duration), function($message)
         {

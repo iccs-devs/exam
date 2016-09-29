@@ -7,11 +7,11 @@
         </div>  
         <div class="col-md-8">
             <img src="{{ Theme.asset.url('img/playback.gif') }}" style="height:100px;width:200px"/>
-            <!--
+            
             <audio autoplay>
                 <source src="{{ Theme.asset.url('snd/a.mp3') }}" type="audio/mpeg">
             </audio>    
-            -->
+            
             <br /><br />
             {{ Form.open({'action': 'examSaveItems', 'class':'form-inline', 'id':'userForm'}) }}
             <input type="hidden" name="examNumber" value="1"> 

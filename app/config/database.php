@@ -55,8 +55,8 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database' => 'dnc',
-			'username' => 'dncms',
+			'database' => 'exam',
+			'username' => 'exam',
 			'password' => '1234',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',

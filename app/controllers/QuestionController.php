@@ -24,6 +24,7 @@ class QuestionController extends BaseController {
                     'question_id' => 'required',
                     'exam_id' => 'required',
                     'text' => 'required',
+                    'answer' => 'required',
                 ]
         );  
         
@@ -34,7 +35,11 @@ class QuestionController extends BaseController {
                                 'exam_id' => Input::get('exam_id'),                                    
                                 'text' => Input::get('text'),
                                 'type' => Input::get('type')]
-                    );              
+                    );
+            
+           Answers::insert(['question_id' => Input::get('question_id'),
+                                'answer' => Input::get('answer')]
+                    );  
 
         }
         return Redirect::to('/admin/question/add')->with(['message' => 'Question Saved']); 

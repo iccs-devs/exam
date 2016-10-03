@@ -6,7 +6,8 @@ Route::get('/exam/{id}', 'ApplicantController@showExam');
 
 Route::post('/save', array('as' => 'examSaveItems', 'uses' => 'ExamController@save')); 
 
-
+Route::get('/admin/question', 'QuestionController@viewList');
+Route::get('/admin/question/{id}', 'QuestionController@viewDetail');
 Route::get('/admin/question/add', 'QuestionController@add');
 Route::post('/admin/question/save', array('as' => 'questionSave', 'uses' => 'QuestionController@save')); 
 Route::get('/admin/exam/add', 'ExamController@add');

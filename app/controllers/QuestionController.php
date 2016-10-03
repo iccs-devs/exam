@@ -7,11 +7,37 @@ class QuestionController extends BaseController {
     public function __construct()
     {
         $this->initTheme();      
-    }  
+    }
+    
+    public function viewList()
+    { 
+        
+        $data = ['questions' => Questions::All(),
+            'message' => Session::get('message')
+        ];
+
+
+        return $this->theme->of('admin.questionViewList', $data)->render();
+    }    
+    
+    public function viewDetail($id)
+    { 
+       $question = DB::table('questions')
+                    ->join('answers_correct', 'answers_correct.question_id', '=', 'questions.question_id')
+                    ->where('questions.question_id', $id)
+                    ->first();        
+        //dd($question);
+        $data = ['question' => $question,
+            'message' => Session::get('message')
+        ];
+
+
+        return $this->theme->of('admin.questionViewDetail', $data)->render();
+    }     
     
     public function add()
     { 
-        return $this->theme->of('questionAdd', ['message' => Session::get('message')])->render();
+        return $this->theme->of('admin.questionAdd', ['message' => Session::get('message')])->render();
     }
 
     public function save()

@@ -11,8 +11,13 @@ class QuestionController extends BaseController {
     
     public function viewList()
     { 
-        
-        $data = ['questions' => Questions::All(),
+       $questions = DB::table('questions')
+                    ->join('answers_correct', 'answers_correct.question_id', '=', 'questions.question_id')  
+                    ->select('*', DB::raw('GROUP_CONCAT(answers_correct.answer) as ans')) 
+                    ->groupBy('answers_correct.question_id')
+                    ->get(); 
+        //dd($questions);
+        $data = ['questions' => $questions,
             'message' => Session::get('message')
         ];
 

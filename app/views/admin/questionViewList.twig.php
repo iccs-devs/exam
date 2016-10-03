@@ -24,6 +24,7 @@
                         <th>Exam ID</th>
                         <th>Text</th>
                         <th>Type</th>
+                        <th>Answer</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -35,8 +36,9 @@
                         <td>{{ question.exam_id }}</td>
                         <td>{{ question.text }}</td>
                         <td>{{ question.type }}</td>
+                        <td>{{ question.ans }}</td>
                         <td>
-                            <button ><span class="glyphicon glyphicon-trash"></span></button>                            
+                            <button ><span class="glyphicon glyphicon-check"></span></button>                            
                         </td>
                         
                     </tr>

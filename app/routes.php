@@ -9,6 +9,8 @@ Route::post('/save', array('as' => 'examSaveItems', 'uses' => 'ExamController@sa
 
 Route::get('/admin/question/add', 'QuestionController@add');
 Route::post('/admin/question/save', array('as' => 'questionSave', 'uses' => 'QuestionController@save')); 
+Route::get('/admin/exam/add', 'ExamController@add');
+Route::post('/admin/exam/save', array('as' => 'examSave', 'uses' => 'ExamController@save')); 
 
 // protected routes
 Route::group(['before' => 'auth'], function(){

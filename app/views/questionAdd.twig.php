@@ -6,12 +6,12 @@
 			{{ Form.open({'action': 'questionSave', 'class':'form-horizontal'}) }}
                         
 		<div class="col-md-3">    
-                       
+
                 </div>
                 <div class="col-md-6">
                     {% if message %}
                     <div class="alert alert-dismissible alert-success">
-                        <button class="close" data-dismiss="alert" type="button">×</button>
+                        <button class="close" data-dismiss="alert" type="button">x</button>
                         {{ message }}
                     </div>
                     {% endif %}         

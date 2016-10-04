@@ -64,7 +64,15 @@ class ExamController extends BaseController {
         
     }
     
-    public function save()
+        public function delete()
+    {
+     
+        return Redirect::to('/admin/exam/add')->with(['message' => 'Exam Deleted']); 
+
+    }
+
+            
+        public function save()
             
         
     { 

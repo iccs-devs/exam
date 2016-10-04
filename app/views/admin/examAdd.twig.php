@@ -78,6 +78,7 @@
                             </div>
                         </div>
                         <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+                        <input class="btn btn-success" type="button" name="btndel" value="Delete">
 
                                 </form>
                             <div class="col-md-4">            

@@ -38,7 +38,7 @@
                         <td>{{ exam.random }}</td>
                         <td>{{ exam.pass_percentage }}</td>
                         <td>
-                            <button ><span class="glyphicon glyphicon-check"></span></button>                            
+                            <a type="button" href=" {{ URL.to('/admin/exam/delete') }}/{{ exam.exam_id }}" method="DELETE"  onsubmit="return confirm('Are you sure you want to submit?');"><span class="glyphicon glyphicon-check"></span></a>                            
                         </td>
                         
                     </tr>

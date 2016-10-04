@@ -28,10 +28,47 @@ class ExamController extends BaseController {
     { 
         return $this->theme->of('examComplete')->render();
     }
+    
+    public function viewList()
+   {
 
-    public function save()
-    { 
+       $exams = Exams::All();
+        $data = ['exams' => $exams,
+            'message' => Session::get('message')
+        ];
+        return $this->theme->of('admin.examViewList', $data)->render();
         
+        
+   }
+        public function viewDetail($id)
+    { 
+       $exam = DB::table('exams')
+              
+                    ->where('exams.exam_id', $id)
+                    ->first();        
+        //dd($exam);
+        $data = ['exam' => $exam,
+            'message' => Session::get('message')
+        ];
+
+
+        return $this->theme->of('admin.examViewDetail', $data)->render();
+    } 
+   
+   
+        public function add()
+    {
+        
+        return $this->theme->of('admin.examAdd', ['message' => Session::get('message')])->render();
+        
+        
+    }
+    
+    public function save()
+            
+        
+    { 
+        //dd(Input::all());
         $validation = Validator::make(
                 Input::all(), 
                 [
@@ -48,17 +85,17 @@ class ExamController extends BaseController {
             return Redirect::back()->withInput()->withErrors($validation->messages());                           
         } else {
             Exams::insert(['exam_id' => Input::get('exam_id'),
-                                'title' => Input::get('title'),                                    
-                                'description' => Input::get('description'),
-                                'random' => Input::get('random'),
-                                'pass_percentage' => Input::get('pass_percentage')]
+                           'title' => Input::get('title'),                                    
+                           'description' => Input::get('description'),
+                           'random' => Input::get('random'),
+                           'pass_percentage' => Input::get('pass_percentage')]
                     );              
 
         }
-        return Redirect::to('/admin/exam/add')->with(['message' => 'Exam Saved']); 
+        return Redirect::to('/admin/exam')->with(['message' => 'Exam Saved']); 
+     
         //return $this->theme->of('emails.answers', ['answers' => Input::all(), 'dateEnd' => date("Y-m-d H:i:s"), 'duration' => $duration])->render();
          
-        //dd(Input::all());
         
         $datetime1 = new DateTime(Input::get('dateStart'));
         $datetime2 = new DateTime(date("Y-m-d H:i:s"));
@@ -75,15 +112,6 @@ class ExamController extends BaseController {
          
          
     }
-    
-    public function add()
-    {
-        
-        return $this->theme->of('admin.examAdd', ['message' => Session::get('message')])->render();
-        
-        
-    }
-    
     
 
 }

@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-			{{ Form.open({'action': 'questionSave', 'class':'form-horizontal'}) }}
+			{{ Form.open({'action': 'examSave', 'class':'form-horizontal'}) }}
                         
 		<div class="col-md-4">    
 
@@ -17,66 +17,66 @@
                     {% endif %}         
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="example-text-input-horizontal">
-                        Question ID
+                        Exam ID
                       </label>
                       <div class="col-sm-9">
-                        <input class="form-control" id="example-text-input-horizontal" type="text" name="question_id" value="{{ Input.old('question_id') }}">
-                        {% if errors.first('question_id') %}
-                        <span class="label label-danger">{{ errors.first('question_id') }}  </span>
+                        <input class="form-control" id="example-text-input-horizontal" type="text" name="exam_id" value="{{ exam.exam_id }}">
+                        {% if errors.first('exam_id') %}
+                        <span class="label label-danger">{{ errors.first('exam_id') }}  </span>
                         {% endif %}                        
                       </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="example-text-input-horizontal">
-                          Exam ID
+                            Title
                         </label>
                         <div class="col-sm-9">
-                            <input class="form-control" id="example-text-input-horizontal" type="text" name="exam_id" value="{{ Input.old('exam_id') }}">
-                            {% if errors.first('exam_id') %}
-                            <span class="label label-danger"> {{ errors.first('exam_id') }}  </span>
+                            <input class="form-control" id="example-text-input-horizontal" type="text" name="title" value="{{ exam.title }}">
+                            {% if errors.first('title') %}
+                            <span class="label label-danger">{{ errors.first('title') }}  </span>
                             {% endif %} 
                         </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="example-text-input-horizontal">
-                          Text
+                          Description
                       </label>
                       <div class="col-sm-9">
-                          <textarea type="text" placeholder="Type here" name="text">{{ Input.old('text') }}</textarea>
-                        {% if errors.first('text') %}
-                        <span class="label label-danger">{{ errors.first('text') }}  </span>
+                          <textarea type="text" placeholder="Type here" name="description">{{ exam.description }}</textarea>
+                        {% if errors.first('description') %}
+                        <span class="label label-danger">{{ errors.first('description') }}  </span>
                         {% endif %} 
 
                       </div>
                     </div>
                     
-
-                      <div class="form-group">
-                            <label class="col-sm-3 control-label">Type</label>
-                                <div class="col-sm-4">
-                                    <select class="form-control" name="type">
-                                        <option>Text</option>
-                                        <option>Radio Button</option>
-                                        <option>Select</option>
-                                      </select>
-                                 </div>
-                      </div>
-                    
                        <div class="form-group">
                             <label class="col-sm-3 control-label" for="example-text-input-horizontal">
-                                Answer
+                                Random
                             </label>
                          <div class="col-sm-9">
-                                <input class="form-control" id="example-text-input-horizontal" type="text" name="answer" value="{{ Input.old('answer') }}">
-                          
-                              {% if errors.first('answer') %}
-                               <span class="label label-danger">{{ errors.first('answer') }}  </span>
+                                <input class="form-control" id="example-text-input-horizontal" type="text" name="random" value="{{ exam.random }}">
+                              {% if errors.first('random') %}
+                               <span class="label label-danger">{{ errors.first('random') }}  </span>
                               {% endif %} 
 
                          </div>
                        </div>
+                    
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="example-text-input-horizontal">
+                                Pass Percentage
+                            </label>
+                             <div class="col-sm-9">
+                                <input class="form-control" id="example-text-input-horizontal" type="text" name="pass_percentage" value="{{ exam.random }}">
+                              {% if errors.first('pass_percentage') %}
+                               <span class="label label-danger">{{ errors.first('pass_percentage') }}  </span>
+                              {% endif %} 
+
+                             </div>
+                         </div>
                                <input class="btn btn-success" type="submit" name="btnadd" value="Add">
 
                                 </form>

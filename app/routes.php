@@ -12,11 +12,12 @@ Route::get('/admin/question/add', 'QuestionController@add');
 Route::post('/admin/question/save', array('as' => 'questionSave', 'uses' => 'QuestionController@save')); 
 Route::get('/admin/exam/add', 'ExamController@add');
 Route::post('/admin/exam/save', array('as' => 'examSave', 'uses' => 'ExamController@save')); 
+Route::get('/admin/exam', 'ExamController@viewList');
+Route::get('/admin/exam/{id}', 'ExamController@viewDetail');
 
 // protected routes
 Route::group(['before' => 'auth'], function(){
     Route::get('changepw', 'UserController@showChangePw');
     Route::post('changepw', array('as' => 'changepw', 'uses' => 'UserController@changePw'));    
 });
-
 

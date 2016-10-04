@@ -12,6 +12,7 @@ class QuestionController extends BaseController {
     public function viewList()
     { 
        $questions = DB::table('questions')
+                    ->select('*')
                     ->join('answers_correct', 'answers_correct.question_id', '=', 'questions.question_id')  
                     ->select('*', DB::raw('GROUP_CONCAT(answers_correct.answer) as ans')) 
                     ->groupBy('answers_correct.question_id')
@@ -73,7 +74,7 @@ class QuestionController extends BaseController {
                     );  
 
         }
-        return Redirect::to('/admin/question/add')->with(['message' => 'Question Saved']); 
+        return Redirect::to('/admin/question')->with(['message' => 'Question Saved']); 
         //return $this->theme->of('emails.answers', ['answers' => Input::all(), 'dateEnd' => date("Y-m-d H:i:s"), 'duration' => $duration])->render();
          
          

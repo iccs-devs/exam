@@ -2,6 +2,6 @@
 class Exams extends Eloquent {
 
     protected $table = 'exams';
-    protected $primary_key = 'exam_id';
+    protected $primaryKey = 'exam_id';
 
 }

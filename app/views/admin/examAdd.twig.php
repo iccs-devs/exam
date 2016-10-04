@@ -44,7 +44,7 @@
                           description
                       </label>
                       <div class="col-sm-9">
-                          <textarea type="text" placeholder="Type here" name="description">{{ Input.old('description') }}</textarea>
+                          <textarea type="text" placeholder="Type here" name="description" value="{{ Input.old('description') }}"> </textarea>
                         {% if errors.first('description') %}
                         <span class="label label-danger">{{ errors.first('description') }}  </span>
                         {% endif %} 

@@ -6,7 +6,7 @@
 			{{ Form.open({'action': 'examSave', 'class':'form-horizontal'}) }}
                         
 		<div class="col-md-4">    
-
+                    
                 </div>
                 <div class="col-md-4">
                     {% if message %}
@@ -52,17 +52,17 @@
                       </div>
                     </div>
                     
-                       <div class="form-group">
-                            <label class="col-sm-3 control-label" for="example-text-input-horizontal">
-                                Random
-                            </label>
-                         <div class="col-sm-9">
-                                <input class="form-control" id="example-text-input-horizontal" type="text" name="random" value="{{ exam.random }}">
-                              {% if errors.first('random') %}
-                               <span class="label label-danger">{{ errors.first('random') }}  </span>
-                              {% endif %} 
+                    <div class="form-group">
+                         <label class="col-sm-3 control-label" for="example-text-input-horizontal">
+                             Random
+                         </label>
+                      <div class="col-sm-9">
+                             <input class="form-control" id="example-text-input-horizontal" type="text" name="random" value="{{ exam.random }}">
+                           {% if errors.first('random') %}
+                            <span class="label label-danger">{{ errors.first('random') }}  </span>
+                           {% endif %} 
 
-                         </div>
+                      </div>
                        </div>
                     
                         <div class="form-group">
@@ -75,9 +75,10 @@
                                <span class="label label-danger">{{ errors.first('pass_percentage') }}  </span>
                               {% endif %} 
 
-                             </div>
+                                </div>
                          </div>
-                               <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+                            <input class="btn btn-delete" type="button" name="btndelete" value="Delete">
+                            <input class="btn btn-success" type="submit" name="btnadd" value="Add">
 
                                 </form>
                           <div class="col-md-4">            

@@ -15,7 +15,7 @@ Route::post('/admin/exam/save', array('as' => 'examSave', 'uses' => 'ExamControl
 Route::get('/admin/exam', 'ExamController@viewList');
 Route::get('/admin/exam/{id}', 'ExamController@viewDetail');
 Route::get('/admin/exam/delete', 'ExamController@delete');
-Route::get('/admin/exam/delete/{id}', 'ExamController@viewDetail');
+Route::get('/admin/exam/delete/{id}', 'ExamController@delete');
 Route::post('/admin/exam/delete', array('as' => 'examSave', 'uses' => 'ExamController@save')); 
 
 

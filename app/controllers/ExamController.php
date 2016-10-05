@@ -42,16 +42,20 @@ class ExamController extends BaseController {
    }
         public function viewDetail($id)
     { 
-       $exam = DB::table('exams')
-              
+        
+       $exam = DB::table('exams')              
                     ->where('exams.exam_id', $id)
-                    ->first();        
-        //dd($exam);
-        $data = ['exam' => $exam,
+                    ->first();     
+        
+        
+        //dd($exam);    
+        
+        $data = ['exam' => $exam,            
             'message' => Session::get('message')
-        ];
-
-
+        ];    
+        
+              
+        
         return $this->theme->of('admin.examViewDetail', $data)->render();
     } 
    
@@ -63,17 +67,19 @@ class ExamController extends BaseController {
         
         
     }
-    
-        public function delete()
+       
+      public function delete($id)
     {
-     
-        return Redirect::to('/admin/exam/add')->with(['message' => 'Exam Deleted']); 
-
+       
+         $exam = DB::table('exams')              
+                    ->where('exams.exam_id', $id)
+                    ->delete();  
+         
+         return Redirect::to('admin/exam')->with(['message' => 'Exam deleted']);
     }
-
-            
-        public function save()
-            
+  
+        public function save()     
+        
         
     { 
         //dd(Input::all());
@@ -120,6 +126,7 @@ class ExamController extends BaseController {
          
          
     }
+    
     
 
 }

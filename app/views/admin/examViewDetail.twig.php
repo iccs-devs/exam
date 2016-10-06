@@ -77,7 +77,7 @@
 
                                 </div>
                          </div>
-                            <input class="btn btn-delete" type="button" name="btndelete" value="Delete">
+                                
                             <input class="btn btn-success" type="submit" name="btnadd" value="Add">
 
                                 </form>

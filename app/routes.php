@@ -4,6 +4,7 @@ Route::get('/', 'ApplicantController@showIntro');
 Route::get('/end', 'ApplicantController@showEnd');
 Route::get('/exam/{id}', 'ApplicantController@showExam');
 
+
 Route::post('/save', array('as' => 'examSaveItems', 'uses' => 'ExamController@save')); 
 
 Route::get('/admin/question', 'QuestionController@viewList');

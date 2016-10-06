@@ -33,7 +33,7 @@ class ExamController extends BaseController {
    {
 
        $exams = Exams::All();
-        $data = ['exams' => $exams,
+       $data = ['exams' => $exams,
             'message' => Session::get('message')
         ];
         return $this->theme->of('admin.examViewList', $data)->render();
@@ -62,7 +62,7 @@ class ExamController extends BaseController {
    
         public function add()
     {
-        
+       
         return $this->theme->of('admin.examAdd', ['message' => Session::get('message')])->render();
         
         
@@ -70,8 +70,9 @@ class ExamController extends BaseController {
        
       public function delete($id)
     {
-       
-         $exam = DB::table('exams')              
+      
+
+        $Delete = DB::table('exams')              
                     ->where('exams.exam_id', $id)
                     ->delete();  
          

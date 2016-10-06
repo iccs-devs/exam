@@ -41,16 +41,18 @@
                         <td><a href="{{ URL.to('/admin/exam') }}/{{ exam.pass_percentage }}"> {{ exam.pass_percentage }}</a></td>
                         <td>  
                             
-                            <a class="btn btn-default" type="button" href=" {{ URL.to('/admin/exam/delete') }}/{{ exam.exam_id }}" method="DELETE"  onsubmit="return confirm('Are you sure you want to submit?');">
-                            <span class="glyphicon glyphicon-check">
+                            <a class="btn btn-default" type="button" href=" {{ URL.to('/admin/exam/delete') }}/{{ exam.exam_id }}"   onclick="return confirm('Are you sure you want to delete?');">
+                            <span class="glyphicon glyphicon-remove-sign">
                             </span>
-                            </a>
+                            </a> 
                             
                             {{ Form.open(['method' , 'delete', 'route' , 'exam.examViewList'] ) }}
                             {{ Form.hidden('id', 'exam_id') }}
-                            
+                        </td>
+                        
+                         </tr>  
 
-                    </tr>
+                
                 {% endfor %}                    
                   
                 </tbody>
@@ -58,7 +60,8 @@
 
             
 
-            <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+            <a class="btn btn-success" type="submit" name="btnadd" value="Add" href="{{ URL.to('/admin/exam/add') }}">Add</a>
+           
 
             <form>
         </div>

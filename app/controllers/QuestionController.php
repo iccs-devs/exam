@@ -46,6 +46,19 @@ class QuestionController extends BaseController {
         return $this->theme->of('admin.questionAdd', ['message' => Session::get('message')])->render();
     }
 
+     public function delete($id)
+    {
+      
+
+                $Delete = DB::table('questions')              
+                            ->where('questions.question_id', $id)
+                            ->delete();  
+
+                 return Redirect::to('admin/question')->with(['message' => 'Exam deleted']);
+            }
+
+    
+    
     public function save()
     { 
         //dd(Input::all());

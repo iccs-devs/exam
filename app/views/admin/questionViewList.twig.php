@@ -38,7 +38,13 @@
                         <td>{{ question.type }}</td>
                         <td>{{ question.ans }}</td>
                         <td>
-                            <button ><span class="glyphicon glyphicon-check"></span></button>                            
+                             <a class="btn btn-default" type="button" href=" {{ URL.to('/admin/question/delete') }}/{{ question.question_id }}"   onclick="return confirm('Are you sure you want to delete?');">
+                            <span class="glyphicon glyphicon-remove-sign">
+                            </span>
+                            </a> 
+                            
+                            {{ Form.open(['method' , 'delete', 'route' , 'question.questionViewList'] ) }}
+                            {{ Form.hidden('id', 'question_id') }}                         
                         </td>
                         
                     </tr>
@@ -47,11 +53,8 @@
             </table>
 
 
+            <a class="btn btn-success" type="submit" name="btnadd" value="Add" href="{{ URL.to('/admin/question/add') }}">Add</a>
 
-
-
-
-            <input class="btn btn-success" type="submit" name="btnadd" value="Add">
 
             <form>
         </div>

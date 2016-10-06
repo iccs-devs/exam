@@ -35,10 +35,10 @@
                      
                     <tr>
                         <td><a href="{{ URL.to('/admin/exam') }}/{{ exam.exam_id }}"> {{ exam.exam_id }}</a></td>
-                        <td><a href="{{ URL.to('/admin/exam') }}/{{ exam.title }}"> {{ exam.title }}</a></td>
-                        <td><a href="{{ URL.to('/admin/exam') }}/{{ exam.description }}"> {{ exam.description }}</a></td>
-                        <td><a href="{{ URL.to('/admin/exam') }}/{{ exam.random }}"> {{ exam.random }}</a></td>
-                        <td><a href="{{ URL.to('/admin/exam') }}/{{ exam.pass_percentage }}"> {{ exam.pass_percentage }}</a></td>
+                        <td> {{ exam.title }}</td>
+                        <td> {{ exam.description }}</td>
+                        <td> {{ exam.random }}</td>
+                        <td> {{ exam.pass_percentage }}</td>
                         <td>  
                             
                             <a class="btn btn-default" type="button" href=" {{ URL.to('/admin/exam/delete') }}/{{ exam.exam_id }}"   onclick="return confirm('Are you sure you want to delete?');">

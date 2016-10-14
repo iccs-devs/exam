@@ -16,7 +16,7 @@
             <h3>Information for candidates</h3>    
             <ul>
                 <li>There are <b>Two</b> test to the exam: <b>LISTENING AND ABSTRACT REASONING. </b> </li> 
-                <li>The first test is the listening exam which has <b>4</b>parts with <b>40</b>questions.</li> 
+                <li>The first test is the listening exam which has <b>4</b> parts with <b>40</b> questions.</li> 
                 <li>The second test is the abstract reasoning with <b>20</b> questions.</li>
             </ul>             
             

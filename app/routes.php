@@ -9,6 +9,7 @@ Route::post('/save', array('as' => 'examSaveItems', 'uses' => 'ExamController@sa
 
 Route::get('/admin/question', 'QuestionController@viewList');
 Route::get('/admin/question/{id}', 'QuestionController@viewDetail');
+Route::get('/admin/option/destroy/{id}', 'QuestionController@destroy');
 Route::get('/admin/question/delete/{id}', 'QuestionController@delete');
 Route::get('/admin/question/update/{id}', 'QuestionController@save');
 Route::post('/admin/question/update', array('as' => 'questionSave','uses'=>'QuestionController@save'));
@@ -16,6 +17,7 @@ Route::post('/admin/question/update', array('as' => 'questionSave','uses'=>'Ques
 Route::get('/admin/exam', 'ExamController@viewList');
 Route::get('/admin/exam/{id}', 'ExamController@viewDetail');
 Route::get('/admin/exam/delete/{id}', 'ExamController@delete');
+Route::get('/admin/exam/delete/{id}', 'ExamController@remove');
 Route::get('/admin/exam/update/{id}', 'ExamController@save');
 Route::post('/admin/exam/update', array('as' => 'examSave','uses'=>'ExamController@save'));
 

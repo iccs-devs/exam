@@ -65,22 +65,7 @@ class QuestionController extends BaseController {
     } 
 
     
-    public function add($option)
-         
-     {
-         $Add = DB::table('question_options')
-                 ->where ('question_options.question_id', $id)
-                 ->add();
-        
-     }
-    
-    public function clearform($id) {
-       
-        
-    }
-    
-    public function save() {
-
+       public function save() {
         //dd(Input::All());
         $id = Input::get('question_id'); 
         $option = Input::get('option_id'); 

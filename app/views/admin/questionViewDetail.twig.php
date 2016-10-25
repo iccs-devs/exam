@@ -86,33 +86,32 @@
                   {% endif %} 
                   
              </div>
-            <input class="btn btn-success" type="submit" name="btnadd" value="Add">
-             {% for option in options %}
-              
-             <div class="form-group">
+                    <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+               <br/>
+                    {% for option in options %}
+                    <br/>
+           <div class="form-group">
+               <table>
+                   <tr>
                    <a href="{{ URL.to('/admin/option') }}/{{ option.option_id }}"> 
-                    <label class="col-sm-8 control-label" for="example-text-input-horizontal">
-                    {{ option.option_id }}
+                    <label class="col-sm-10 control-label" for="example-text-input-horizontal">
+                    {{ option.option_id }} 
                     {{ option.option_text }} 
                       </label>
                    </a>
-                   
                       <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/option/destroy') }}/{{ option.option_id }}"   onclick="return confirm('Are you sure you want to delete?');">
                         <span class="glyphicon glyphicon-remove-sign">
                         </span>
                       </a> 
-                   <br/>
-                 
-                  
+                   </tr>
                    {% endfor%}
-              
+              </table> 
            </div>
-        
            <div class="form-group">
-                <label class="col-sm-3 control-label" for="example-text-input-horizontal">
+                <label class="col-sm-4 control-label" for="example-text-input-horizontal">
                     Answer
                 </label>
-             <div class="col-sm-7">
+             <div class="col-sm-6">
                     <input class="form-control" id="example-text-input-horizontal" type="text" name="answer" value="{{ question.answer }}">
 
                   {% if errors.first('answer') %}
@@ -129,6 +128,7 @@
         </div>
 
      </div>                 
+          </div>
         </div>
     </div>
 </div>

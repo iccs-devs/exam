@@ -32,7 +32,7 @@
                 <td>{{ question.exam_id }}</td>
                 <td>{{ question.text }}</td>
                 <td>{{ question.type }}</td>
-                <td>{{ question.ans }}</td>
+                <td>{{ question.answer }}</td>
                 <td>
                      <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/question/delete') }}/{{ question.question_id }}"   onclick="return confirm('Are you sure you want to delete?');">
                     <span class="glyphicon glyphicon-remove-sign">

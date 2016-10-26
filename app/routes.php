@@ -18,7 +18,6 @@ Route::get('/admin/option/destroy/{id}', 'QuestionController@destroy');
 Route::get('/admin/exam', 'ExamController@viewList');
 Route::get('/admin/exam/{id}', 'ExamController@viewDetail');
 Route::get('/admin/exam/delete/{id}', 'ExamController@delete');
-Route::get('/admin/exam/delete/{id}', 'ExamController@remove');
 Route::get('/admin/exam/update/{id}', 'ExamController@save');
 Route::post('/admin/exam/update', array('as' => 'examSave','uses'=>'ExamController@save'));
 

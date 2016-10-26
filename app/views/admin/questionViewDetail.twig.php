@@ -27,18 +27,6 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="example-text-input-horizontal">
-              Exam ID
-            </label>
-            <div class="col-sm-9">
-                <input class="form-control" id="example-text-input-horizontal" type="text" name="exam_id" value="{{ question.exam_id }}">
-                {% if errors.first('exam_id') %}
-                <span class="label label-danger">{{ errors.first('exam_id') }}  </span>
-                {% endif %} 
-            </div>
-        </div>
-
-        <div class="form-group">
           <label class="col-sm-3 control-label" for="example-text-input-horizontal">
               Text
           </label>
@@ -89,7 +77,7 @@
                     <input class="btn btn-success" type="submit" name="btnadd" value="Add">
                <br/>
                     {% for option in options %}
-                    <br/>
+                   <br/>
            <div class="form-group">
                <table>
                    <tr>
@@ -108,10 +96,10 @@
               </table> 
            </div>
            <div class="form-group">
-                <label class="col-sm-4 control-label" for="example-text-input-horizontal">
+                <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                     Answer
                 </label>
-             <div class="col-sm-6">
+             <div class="col-sm-8">
                     <input class="form-control" id="example-text-input-horizontal" type="text" name="answer" value="{{ question.answer }}">
 
                   {% if errors.first('answer') %}
@@ -124,7 +112,7 @@
         <input class="btn btn-success" type="submit" name="btnadd" value="Save">
 
         </form>
-        <div class="col-md-4">            
+        <div class="col-md-3">            
         </div>
 
      </div>                 

@@ -18,7 +18,6 @@
             <thead>
                 <tr>
                     <th>Question ID</th>
-                    <th>Exam ID</th>
                     <th>Text</th>
                     <th>Type</th>
                     <th>Answer</th>
@@ -29,7 +28,6 @@
         {% for question in questions %}
             <tr>
                 <td><a href="{{ URL.to('/admin/question') }}/{{ question.question_id }}">{{ question.question_id }}</a></td>
-                <td>{{ question.exam_id }}</td>
                 <td>{{ question.text }}</td>
                 <td>{{ question.type }}</td>
                 <td>{{ question.answer }}</td>

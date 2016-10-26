@@ -42,14 +42,9 @@ class ExamController extends BaseController {
    }
     public function viewDetail($id)
    { 
-
-      $exam = DB::table('exams')              
-                   ->where('exams.exam_id', $id)
-                   ->first();       
-
-       //dd($exam);    
-
-       $data = ['exam' => $exam,            
+       
+       $data = ['exam' => exams::find($id),
+                'questions_table' => Questions::all(),
            'message' => Session::get('message')
        ];    
 
@@ -105,6 +100,25 @@ class ExamController extends BaseController {
 
               }
        return Redirect::to('/admin/exam')->with(['message' => 'Exam Saved']); 
+       
+       if ($validation->fails()) {
+            return Redirect::to('admin/exam/')->withErrors($validation->messages());
+        } else {
+            
+        }
+            if (Questions::find('text') == null) { 
+            Questions::insert(['text' => Input::get('text'),]
+                               );   
+             } else { 
+                 
+                $update = Questions::find('text');
+                $update->text = Input::get('text');
+                $update->save();
+             }
+            
+                     
+            return Redirect::to('admin/exam')->with(['message' => 'Question Saved']);           
+        }
 
        //return $this->theme->of('emails.answers', ['answers' => Input::all(), 'dateEnd' => date("Y-m-d H:i:s"), 'duration' => $duration])->render();
 
@@ -126,5 +140,3 @@ class ExamController extends BaseController {
    }
 
   }  
-
-}

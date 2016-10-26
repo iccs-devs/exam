@@ -73,7 +73,6 @@ class QuestionController extends BaseController {
         $validation = Validator::make(Input::all(),array
         (
             'question_id' => 'required',
-            'exam_id' => 'required',
             'text' => 'required',
             'type' => 'required',
             'answer' => 'required',           
@@ -87,8 +86,7 @@ class QuestionController extends BaseController {
             //dd(Questions::find($id));
 
             if (Questions::find($id) == null) {
-                Questions::insert(['question_id' => Input::get('question_id'),
-                                    'exam_id' => Input::get('exam_id'),                                    
+                Questions::insert(['question_id' => Input::get('question_id'),                                   
                                     'text' => Input::get('text'),
                                     'type' => Input::get('type'),]
                                  );
@@ -102,7 +100,6 @@ class QuestionController extends BaseController {
             } else {                
                 $update = Questions::find($id);
                 $update->question_id = $id;
-                $update->exam_id=Input::get('exam_id');
                 $update->text=Input::get('text');
                 $update->type=Input::get('type');
                 $update->save();

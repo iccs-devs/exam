@@ -12,7 +12,8 @@
                 <button class="close" data-dismiss="alert" type="button">x</button>
                 {{ message }}
             </div>
-            {% endif %}         
+            {% endif %}   
+ 
             <div class="form-group">
               <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                 Exam ID
@@ -41,14 +42,49 @@
               <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                  Description
               </label>
-              <div class="col-sm-9">
+                <div class="col-sm-9">
                   <textarea type="text" placeholder="Type here" name="description">{{ exam.description }}</textarea>
                 {% if errors.first('description') %}
                 <span class="label label-danger">{{ errors.first('description') }}  </span>
                 {% endif %} 
               </div>
             </div>
-
+            
+            
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Questions</label>
+             
+              <div class="col-sm-7">
+                <select class="form-control" name="text">
+                    
+                      {% for questions_row in questions_table %}
+                    <option> {{ questions_row.text }} </option>
+                     {% endfor %}
+              
+                </select>
+                 
+                </div> 
+                   <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+              </div>
+            
+           
+           <div form-group>
+               <table class="col-sm-10">
+                   <tr>
+                   <a href="{{ URL.to('/admin/questions') }}/{{ questions.text}}"> 
+                       <label class="col-sm-10 control-label" for="example-text-input-horizontal">
+                        {{ questions.text}}
+                       </label>
+                   </a>
+                   </tr>
+                   <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/question/delete') }}/{{ questions.question_id }}"   onclick="return confirm('Are you sure you want to delete?');">
+                       <span class="glyphicon glyphicon-remove-sign">
+                       </span>
+                   </a> 
+                   
+              </table> 
+            </div> 
+             <br/>
             <div class="form-group">
               <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                  Random
@@ -60,7 +96,7 @@
                  {% endif %} 
               </div>
             </div>
-
+            
             <div class="form-group">
                 <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                    Pass Percentage
@@ -72,7 +108,7 @@
                   {% endif %} 
                  </div>
              </div>
-
+            
         <input class="btn btn-success" type="submit" name="btnadd" value="Save">
 
             </form>

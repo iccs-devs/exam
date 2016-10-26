@@ -54,8 +54,8 @@ class ExamController extends BaseController {
         public function delete($id)
    {
 
-       $Delete = DB::table('exams')              
-              ->where('exams.exam_id', $id)
+       $Delete = DB::table('questions')              
+              ->where('questions.text', $id)
               ->delete();  
 
         return Redirect::to('admin/exam')->with(['message' => 'Exam deleted']);
@@ -66,6 +66,7 @@ class ExamController extends BaseController {
    { 
        //dd(Input::all());
        $id = Input::get('exam_id');
+       $texter = Input::get('text');
        //$update = new Exams();
        $validation = Validator::make(Input::all(),array
         (

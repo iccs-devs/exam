@@ -53,35 +53,30 @@
             
             <div class="form-group">
               <label class="col-sm-3 control-label">Questions</label>
-             
-              <div class="col-sm-7">
+               <div class="col-sm-7">
                 <select class="form-control" name="text">
-                    
-                      {% for questions_row in questions_table %}
+                       {% for questions_row in questions_table %}
                     <option> {{ questions_row.text }} </option>
-                     {% endfor %}
-              
-                </select>
-                 
+                      {% endfor %}
+                </select> 
                 </div> 
-                   <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+             <input class="btn btn-success" type="submit" name="btnadd" value="Add">
               </div>
-            
-           
+           {% for questions_row in questions_table %}  
            <div form-group>
-               <table class="col-sm-10">
+               <table>
                    <tr>
                    <a href="{{ URL.to('/admin/questions') }}/{{ questions.text}}"> 
                        <label class="col-sm-10 control-label" for="example-text-input-horizontal">
-                        {{ questions.text}}
+                        {{ questions_row.text}}
                        </label>
                    </a>
                    </tr>
-                   <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/question/delete') }}/{{ questions.question_id }}"   onclick="return confirm('Are you sure you want to delete?');">
+                   <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/texter/destroy') }}/{{ texter.question_id }}"   onclick="return confirm('Are you sure you want to delete?');">
                        <span class="glyphicon glyphicon-remove-sign">
                        </span>
                    </a> 
-                   
+                   {% endfor %}
               </table> 
             </div> 
              <br/>

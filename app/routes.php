@@ -14,6 +14,7 @@ Route::get('/admin/question/update/{id}', 'QuestionController@save');
 Route::post('/admin/question/update', array('as' => 'questionSave','uses'=>'QuestionController@save'));
 
 Route::get('/admin/option/destroy/{id}', 'QuestionController@destroy');
+Route::get('/admin/texter/destroy/{id}', 'QuestionController@destroy');
 
 Route::get('/admin/exam', 'ExamController@viewList');
 Route::get('/admin/exam/{id}', 'ExamController@viewDetail');

@@ -56,7 +56,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database' => 'exam',
-			'username' => 'exam',
+			'username' => 'root',
 			'password' => '1234',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',

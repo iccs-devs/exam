@@ -37,7 +37,7 @@ class QuestionController extends BaseController {
                      ->first();
         $options = Options::where('question_id',$id)->get();
          //dd($question);
-         $data = ['question' => $question,
+        $data = ['question' => $question,
                   'options' => $options,
                   'message' => Session::get('message')
                  ];        

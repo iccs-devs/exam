@@ -14,7 +14,7 @@ Route::get('/admin/question/update/{id}', 'QuestionController@save');
 Route::post('/admin/question/update', array('as' => 'questionSave','uses'=>'QuestionController@save'));
 
 Route::get('/admin/option/destroy/{id}', 'QuestionController@destroy');
-Route::get('/admin/texter/destroy/{id}', 'QuestionController@destroy');
+Route::get('/admin/texts/destroy/{id}', 'ExamController@destroy');
 
 Route::get('/admin/exam', 'ExamController@viewList');
 Route::get('/admin/exam/{id}', 'ExamController@viewDetail');
@@ -25,7 +25,9 @@ Route::post('/admin/exam/update', array('as' => 'examSave','uses'=>'ExamControll
 
 // protected routes
 Route::group(['before' => 'auth'], function(){
-    Route::get('changepw', 'UserController@showChangePw');
-    Route::post('changepw', array('as' => 'changepw', 'uses' => 'UserController@changePw'));    
+Route::get('changepw', 'UserController@showChangePw');
+Route::post('changepw', array('as' => 'changepw', 'uses' => 'UserController@changePw'));    
 });
+
+Route::get('/test', 'TestController@view');
 

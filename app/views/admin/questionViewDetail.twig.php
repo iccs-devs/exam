@@ -78,23 +78,26 @@
                <br/>
                     {% for option in options %}
                    <br/>
-           <div class="form-group">
-               <table>
-                   <tr>
-                   <a href="{{ URL.to('/admin/option') }}/{{ option.option_id }}"> 
-                    <label class="col-sm-10 control-label" for="example-text-input-horizontal">
-                    {{ option.option_id }} 
-                    {{ option.option_text }} 
-                      </label>
-                   </a>
-                      <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/option/destroy') }}/{{ option.option_id }}"   onclick="return confirm('Are you sure you want to delete?');">
-                        <span class="glyphicon glyphicon-remove-sign">
-                        </span>
-                      </a> 
-                   </tr>
-                   {% endfor%}
-              </table> 
-           </div>
+                   
+                   
+            <div class="form-group">
+                <table>
+                    <tr>
+                    <a href="{{ URL.to('/admin/option') }}/{{ option.option_id }}"> 
+                     <label class="col-sm-10 control-label" for="example-text-input-horizontal">
+                     {{ option.option_id }} &nbsp 
+                     {{ option.option_text }} 
+                       </label>
+                    </a>
+                       <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/option/destroy') }}/{{ option.option_id }}"   onclick="return confirm('Are you sure you want to delete?');">
+                         <span class="glyphicon glyphicon-remove-sign">
+                         </span>
+                       </a> 
+                    </tr>
+                    {% endfor%}
+               </table> 
+            </div>
+          
            <div class="form-group">
                 <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                     Answer

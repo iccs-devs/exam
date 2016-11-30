@@ -51,39 +51,47 @@
             </div>
             
             
-            <div class="form-group">
-              <label class="col-sm-3 control-label">Questions</label>
-               <div class="col-sm-7">
-                <select class="form-control" name="text">
-                       {% for questions_row in questions_table %}
-                    <option> {{ questions_row.text }} </option>
-                      {% endfor %}
-                </select> 
-                </div> 
-             <input class="btn btn-success" type="submit" name="btnadd" value="Add">
-              </div>
-           {% for questions_row in questions_table %}  
-           <div form-group>
-               <table>
-                   <tr>
-                   <a href="{{ URL.to('/admin/questions') }}/{{ questions.text}}"> 
-                       <label class="col-sm-10 control-label" for="example-text-input-horizontal">
+           <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    Questions
+                </label>
+             <div class="col-sm-7">
+                 <select class="form-control" name="question_id" value=" questions_row.text">
+                 {% for questions_row in questions_table %}
+                     <option value='{{ questions_row.question_id }}'> {{ questions_row.text }} </option>
+                  {% endfor %}
+                 </select>
+                 {% if errors.first('texts') %}
+                 <span class="label label-danger">{{ errors.first('texts') }}  </span>
+                 {% endif %} 
+             </div>   
+                   <input class="btn btn-success" type="submit" name="btnadd" value="Add">
+                <br/>
+             
+                    <br/>
+               
+             <div class="form-group">
+               <table>    
+                  <tr>
+                    {% for exams_questions in exams_questions_table %}
+                   <a href="{{ URL.to('/admin/questions') }}/{{ questions_row.text}}"> 
+                    <label class="col-sm-10 control-label" for="example-text-input-horizontal">
                         {{ questions_row.text}}
-                       </label>
+                    </label>
+                     {% endfor %}
                    </a>
+                      <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/texts/destroy') }}/{{ questions_row.text }}"   onclick="return confirm('Are you sure you want to delete?');">
+                        <span class="glyphicon glyphicon-remove-sign">
+                        </span>
+                      </a> 
                    </tr>
-                   <a class="btn btn-danger" type="button" href=" {{ URL.to('/admin/texter/destroy') }}/{{ texter.question_id }}"   onclick="return confirm('Are you sure you want to delete?');">
-                       <span class="glyphicon glyphicon-remove-sign">
-                       </span>
-                   </a> 
-                   {% endfor %}
-              </table> 
-            </div> 
-             <br/>
+               </table>
+            </div>
+                  
             <div class="form-group">
               <label class="col-sm-3 control-label" for="example-text-input-horizontal">
                  Random
-              </label>
+                </label>
               <div class="col-sm-9">
                    <input class="form-control" id="example-text-input-horizontal" type="text" name="random" value="{{ exam.random }}">
                  {% if errors.first('random') %}
@@ -109,8 +117,8 @@
             </form>
         <div class="col-md-4">            
         </div>
-             
-        </div>                 
-        </div>
+       </div>
+      </div>                 
     </div>
+</div>
 </div>
